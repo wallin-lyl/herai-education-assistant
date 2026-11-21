@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: herai
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: AI_PROVIDER
+        value: zhipu
+      - key: ZHIPU_API_KEY
+        sync: false
+      - key: ZHIPU_MODEL
+        value: glm-4.7-flash
+      - key: ZHIPU_BASE_URL
+        value: https://open.bigmodel.cn/api/paas/v4
+      - key: MAX_HISTORY_MESSAGES
+        value: "24"
+      - key: MAX_OUTPUT_TOKENS
+        value: "2048"
+      - key: CONNECT_TIMEOUT_SECONDS
+        value: "20"
+      - key: IDLE_TIMEOUT_SECONDS
+        value: "30"
+      - key: MAX_RETRIES
+        value: "2"
+      - key: MAX_CONCURRENT_CHATS
+        value: "1"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "10"
+      - key: TRUST_PROXY_HEADERS
+        value: "true"
